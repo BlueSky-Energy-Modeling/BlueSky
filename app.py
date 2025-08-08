@@ -246,6 +246,6 @@ def run_mode(n_clicks, selected_mode):
 
 if __name__ == '__main__':
     try:
-        app.run_server(debug=True, host='localhost', port=8080)
+        app.run(debug=True, host='localhost', port=8080)
     finally:
         http_server_process.terminate()
