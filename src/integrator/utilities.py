@@ -194,7 +194,7 @@ def get_annual_wt_avg(elec_price: pd.DataFrame) -> dict[HI, float]:
         return pd.Series(names, index=['weighted_ave_price'])
 
     # find annual weighted average, weight by day weights
-    elec_price_ann = elec_price.groupby(['region', 'year']).apply(my_agg)
+    elec_price_ann = elec_price.groupby(['region', 'year']).apply(my_agg, include_groups=False)
 
     return elec_price_ann
 
