@@ -1,22 +1,20 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>src.models.residential.scripts.residential &mdash; BlueSky Prototype Model v1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=19f00094" />
+  <title>src.models.residential.scripts.residential &mdash; BlueSky Prototype Model v1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../../../_static/documentation_options.js?v=5cb08e4e"></script>
-        <script src="../../../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../../_static/documentation_options.js?v=45183d27"></script>
+      <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" /> 
@@ -80,19 +78,19 @@
 <span class="c1"># Setup</span>
 
 <span class="c1"># Import packages</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
-<span class="kn">import</span> <span class="nn">pyomo.environ</span> <span class="k">as</span> <span class="nn">pyo</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">getLogger</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyomo.environ</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pyo</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">getLogger</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># Import python modules</span>
-<span class="kn">from</span> <span class="nn">definitions</span> <span class="kn">import</span> <span class="n">PROJECT_ROOT</span>
-<span class="kn">from</span> <span class="nn">src.common.config_setup</span> <span class="kn">import</span> <span class="n">Config_settings</span>
-<span class="kn">from</span> <span class="nn">src.common.utilities</span> <span class="kn">import</span> <span class="n">scale_load</span><span class="p">,</span> <span class="n">scale_load_with_enduses</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">definitions</span><span class="w"> </span><span class="kn">import</span> <span class="n">PROJECT_ROOT</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.common.config_setup</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config_settings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.common.utilities</span><span class="w"> </span><span class="kn">import</span> <span class="n">scale_load</span><span class="p">,</span> <span class="n">scale_load_with_enduses</span>
 
 <span class="c1"># Establish Logger</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
@@ -103,7 +101,7 @@
 
 <div class="viewcode-block" id="residentialModule">
 <a class="viewcode-back" href="../../../../../src.models.residential.scripts.residential.html#src.models.residential.scripts.residential.residentialModule">[docs]</a>
-<span class="k">class</span> <span class="nc">residentialModule</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">residentialModule</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This contains the Residential model and its associated functions. Once an object is</span>
 <span class="sd">    instantiated, it can calculate new Load values for updated prices. It can also calculate</span>
@@ -117,7 +115,7 @@
     <span class="n">hr_map</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
     <span class="n">baseYear</span> <span class="o">=</span> <span class="nb">int</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">settings</span><span class="p">:</span> <span class="n">Config_settings</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">loadFile</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -248,7 +246,7 @@
 
 <div class="viewcode-block" id="residentialModule.demandF">
 <a class="viewcode-back" href="../../../../../src.models.residential.scripts.residential.html#src.models.residential.scripts.residential.residentialModule.demandF">[docs]</a>
-    <span class="k">def</span> <span class="nf">demandF</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">demandF</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">price</span><span class="p">,</span>
         <span class="n">load</span><span class="p">,</span>
@@ -328,7 +326,7 @@
 
 <div class="viewcode-block" id="residentialModule.update_load">
 <a class="viewcode-back" href="../../../../../src.models.residential.scripts.residential.html#src.models.residential.scripts.residential.residentialModule.update_load">[docs]</a>
-    <span class="k">def</span> <span class="nf">update_load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Takes in Dual pyomo Parameters or dataframes to update Load values</span>
 
 <span class="sd">        Parameters</span>
@@ -436,7 +434,7 @@
 
 <div class="viewcode-block" id="residentialModule.sensitivity">
 <a class="viewcode-back" href="../../../../../src.models.residential.scripts.residential.html#src.models.residential.scripts.residential.residentialModule.sensitivity">[docs]</a>
-    <span class="k">def</span> <span class="nf">sensitivity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prices</span><span class="p">,</span> <span class="n">change_var</span><span class="p">,</span> <span class="n">percent</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sensitivity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prices</span><span class="p">,</span> <span class="n">change_var</span><span class="p">,</span> <span class="n">percent</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;This estimates how much the output Load will change due to a change in one of the input</span>
 <span class="sd">        variables. It can calculate these values for changes in price, price elasticity, income,</span>
 <span class="sd">        income elasticity, or long term trend. The Load calculation requires input prices, so this</span>
@@ -638,7 +636,7 @@
 
 <div class="viewcode-block" id="residentialModule.complex_step_sensitivity">
 <a class="viewcode-back" href="../../../../../src.models.residential.scripts.residential.html#src.models.residential.scripts.residential.residentialModule.complex_step_sensitivity">[docs]</a>
-    <span class="k">def</span> <span class="nf">complex_step_sensitivity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prices</span><span class="p">,</span> <span class="n">change_var</span><span class="p">,</span> <span class="n">percent</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">complex_step_sensitivity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prices</span><span class="p">,</span> <span class="n">change_var</span><span class="p">,</span> <span class="n">percent</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;This estimates how much the output Load will change due to a change in one of the input</span>
 <span class="sd">        variables. It can calculate these values for changes in price, price elasticity, income,</span>
 <span class="sd">        income elasticity, or long term trend. The Load calculation requires input prices, so this</span>
@@ -778,7 +776,7 @@
 
 <div class="viewcode-block" id="residentialModule.view_sensitivity">
 <a class="viewcode-back" href="../../../../../src.models.residential.scripts.residential.html#src.models.residential.scripts.residential.residentialModule.view_sensitivity">[docs]</a>
-    <span class="k">def</span> <span class="nf">view_sensitivity</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">view_sensitivity</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">regions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">years</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2023</span><span class="p">]</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;This is used by the sensitivity method to display graphs of the calculated values</span>
@@ -825,7 +823,7 @@
 
 <div class="viewcode-block" id="residentialModule.view_output_load">
 <a class="viewcode-back" href="../../../../../src.models.residential.scripts.residential.html#src.models.residential.scripts.residential.residentialModule.view_output_load">[docs]</a>
-    <span class="k">def</span> <span class="nf">view_output_load</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">view_output_load</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">regions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">years</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2023</span><span class="p">]</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;This is used to display the updated Load values after calculation. It will create a</span>
@@ -870,7 +868,7 @@
     <span class="c1"># The constraint is essentially just updating the load parameter</span>
 <div class="viewcode-block" id="residentialModule.make_block">
 <a class="viewcode-back" href="../../../../../src.models.residential.scripts.residential.html#src.models.residential.scripts.residential.residentialModule.make_block">[docs]</a>
-    <span class="k">def</span> <span class="nf">make_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prices</span><span class="p">,</span> <span class="n">pricesindex</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">make_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prices</span><span class="p">,</span> <span class="n">pricesindex</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Updates the value of &#39;Load&#39; based on the new prices given.</span>
 <span class="sd">        The new prices are fed into the equations from the residential model.</span>
 <span class="sd">        The new calculated Loads are used to constrain &#39;Load&#39; in pyomo blocks.</span>
@@ -900,7 +898,7 @@
 
         <span class="c1"># Create constraints that restrict the Load variable to the newly calculated values</span>
         <span class="nd">@mod</span><span class="o">.</span><span class="n">Constraint</span><span class="p">(</span><span class="n">mod</span><span class="o">.</span><span class="n">price_set</span><span class="p">)</span>
-        <span class="k">def</span> <span class="nf">create_load</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">hr</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">create_load</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">hr</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">mod</span><span class="o">.</span><span class="n">Load</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">hr</span><span class="p">]</span> <span class="o">==</span> <span class="n">mod</span><span class="o">.</span><span class="n">updated_load</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">r</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">hr</span><span class="p">),</span> <span class="s1">&#39;Load&#39;</span><span class="p">]</span>
 
         <span class="k">return</span> <span class="n">mod</span></div>
@@ -910,7 +908,7 @@
 
 <div class="viewcode-block" id="run_residential">
 <a class="viewcode-back" href="../../../../../src.models.residential.scripts.residential.html#src.models.residential.scripts.residential.run_residential">[docs]</a>
-<span class="k">def</span> <span class="nf">run_residential</span><span class="p">(</span><span class="n">settings</span><span class="p">:</span> <span class="n">Config_settings</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">run_residential</span><span class="p">(</span><span class="n">settings</span><span class="p">:</span> <span class="n">Config_settings</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;This runs the residential model in stand-alone mode. It can run update_load to calculate new</span>
 <span class="sd">    Load values based on prices, or it can calculate the new Load value along with estimates for</span>
 <span class="sd">    the Load if one of the input variables changes.</span>

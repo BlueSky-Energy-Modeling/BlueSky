@@ -1,4 +1,4 @@
-src.sensitivity.speed\_test
+﻿src.sensitivity.speed\_test
 ===========================
 
 .. automodule:: src.sensitivity.speed_test
@@ -19,6 +19,7 @@ src.sensitivity.speed\_test
       SOPform
       Ynm_c
       abundance
+      all_roots
       apart
       apart_list
       apply_finite_diff
@@ -107,7 +108,6 @@ src.sensitivity.speed\_test
       egyptian_fraction
       epath
       euler_equations
-      evaluate
       expand
       expand_complex
       expand_func
@@ -123,6 +123,7 @@ src.sensitivity.speed\_test
       factor
       factor_list
       factor_nc
+      factor_system
       factor_terms
       factorint
       factorrat
@@ -201,6 +202,7 @@ src.sensitivity.speed\_test
       invert
       is_abundant
       is_amicable
+      is_carmichael
       is_convex
       is_decreasing
       is_deficient
@@ -219,7 +221,6 @@ src.sensitivity.speed\_test
       itermonomials
       jacobi_normalized
       jacobi_poly
-      jacobi_symbol
       jn_zeros
       jordan_cell
       jscode
@@ -228,11 +229,12 @@ src.sensitivity.speed\_test
       kroneckersimp
       laguerre_poly
       lambdify
+      laplace_correspondence
+      laplace_initial_conds
       laplace_transform
       lcm
       lcm_list
       legendre_poly
-      legendre_symbol
       limit
       limit_seq
       line_integrate
@@ -270,6 +272,7 @@ src.sensitivity.speed\_test
       nth_power_roots_poly
       nthroot_mod
       ntt
+      num_digits
       numbered_symbols
       numer
       octave_code
@@ -760,6 +763,7 @@ src.sensitivity.speed\_test
       erfi
       erfinv
       euler
+      evaluate
       exp
       exp_polar
       expint
@@ -784,9 +788,12 @@ src.sensitivity.speed\_test
       hyper
       im
       jacobi
+      jacobi_symbol
       jn
+      kronecker_symbol
       laguerre
       legendre
+      legendre_symbol
       lerchphi
       li
       ln

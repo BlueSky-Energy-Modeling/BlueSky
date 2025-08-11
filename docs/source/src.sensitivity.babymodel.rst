@@ -1,4 +1,4 @@
-src.sensitivity.babymodel
+﻿src.sensitivity.babymodel
 =========================
 
 .. automodule:: src.sensitivity.babymodel
@@ -19,6 +19,7 @@ src.sensitivity.babymodel
       SOPform
       Ynm_c
       abundance
+      all_roots
       apart
       apart_list
       apply_finite_diff
@@ -107,7 +108,6 @@ src.sensitivity.babymodel
       egyptian_fraction
       epath
       euler_equations
-      evaluate
       expand
       expand_complex
       expand_func
@@ -123,6 +123,7 @@ src.sensitivity.babymodel
       factor
       factor_list
       factor_nc
+      factor_system
       factor_terms
       factorint
       factorrat
@@ -201,6 +202,7 @@ src.sensitivity.babymodel
       invert
       is_abundant
       is_amicable
+      is_carmichael
       is_convex
       is_decreasing
       is_deficient
@@ -219,7 +221,6 @@ src.sensitivity.babymodel
       itermonomials
       jacobi_normalized
       jacobi_poly
-      jacobi_symbol
       jn_zeros
       jordan_cell
       jscode
@@ -228,11 +229,12 @@ src.sensitivity.babymodel
       kroneckersimp
       laguerre_poly
       lambdify
+      laplace_correspondence
+      laplace_initial_conds
       laplace_transform
       lcm
       lcm_list
       legendre_poly
-      legendre_symbol
       limit
       limit_seq
       line_integrate
@@ -270,6 +272,7 @@ src.sensitivity.babymodel
       nth_power_roots_poly
       nthroot_mod
       ntt
+      num_digits
       numbered_symbols
       numer
       octave_code
@@ -758,6 +761,7 @@ src.sensitivity.babymodel
       erfi
       erfinv
       euler
+      evaluate
       exp
       exp_polar
       expint
@@ -782,9 +786,12 @@ src.sensitivity.babymodel
       hyper
       im
       jacobi
+      jacobi_symbol
       jn
+      kronecker_symbol
       laguerre
       legendre
+      legendre_symbol
       lerchphi
       li
       ln

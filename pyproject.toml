@@ -19,6 +19,16 @@ dependencies = [
     "tomlkit>=0.13.3",
 ]
 
+[project.optional-dependencies]
+docs = [
+    "furo>=2025.7.19",
+    "myst-parser>=4.0.1",
+    "sphinx>=8.2.3",
+    "sphinx-autobuild>=2024.10.3",
+    "sphinx-markdown-builder>=0.6.8",
+    "sphinx-rtd-theme>=3.0.2",
+]
+
 
 [tool.ruff]
 line-length = 100
